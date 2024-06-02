@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectAllDiceRolls } from './dice-roll-historySlice';
 import { diceNotationRoll, rollStringOutput } from './utils';
@@ -19,21 +19,20 @@ const StdDiceSet = () => {
   return (<>
     <div className='flex flex-col gap-2'>
       {diceSetCol.map((rows, row_i) => {
-        return (<>
+        return (
           <div key={'dice-row-' + row_i} className='flex flex-row gap-2'>
             {rows.map((faces) => {
-              return (<>
+              return (
                 <Button variant={'top'}
                   className={`basis-1/${rows.length} flex-grow px-2 py-2 font-bold text-center`}
                   key={`1d${faces}`}
                   onClick={(e) => stdDiceRoll(e, faces)}>
                   1d{faces}
                 </Button>
-
-              </>);
+              );
             })}
           </div>
-        </>);
+        );
       })}
     </div>
 
@@ -103,9 +102,7 @@ export const DiceRollerWindow = () => {
             </div>
           </div>
         </div>
-
       </div>
-
     </>
   )
 }
