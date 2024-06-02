@@ -1,5 +1,3 @@
-import { useDispatch } from "react-redux";
-import { add as addCharacter } from '@/features/characters/charactersSlice';
 import { Button } from "@/ui/Button";
 import { CharacterFormModal } from "@/features/characters/ui";
 import { useState } from "react";
