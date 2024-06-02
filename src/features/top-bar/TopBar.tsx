@@ -89,7 +89,7 @@ export const TopBar = () => {
       </Button>
 
     </div>
-    <Modal
+    {showHelpModal && <Modal
       title="What's this?"
       show={showHelpModal}
       onClose={e => { setShowHelpModal(false) }}
@@ -97,7 +97,7 @@ export const TopBar = () => {
     >
       <HelpBox />
 
-    </Modal>
+    </Modal>}
   </>);
 }
 
