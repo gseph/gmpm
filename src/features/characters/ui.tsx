@@ -85,12 +85,12 @@ const CharacterColumn = ({ character }: { character: Character }) => {
         </div>
       </div>
     </div>
-    <CharacterFormModal character={character}
+    {showEditModal && <CharacterFormModal character={character}
       show={showEditModal}
       onClose={(e) => setShowEditModal(false)}
       onAbort={(e) => setShowEditModal(false)}
-    />
-    <Modal show={showDeleteModal}
+    />}
+    {showDeleteModal && <Modal show={showDeleteModal}
       title={`Delete character "${character.name}"?`}
       onClose={(e) => setShowDeleteModal(false)}
       onAbort={(e) => setShowDeleteModal(false)}
@@ -102,7 +102,7 @@ const CharacterColumn = ({ character }: { character: Character }) => {
       <div>
         This action will not be reversable!
       </div>
-    </Modal>
+    </Modal>}
   </>);
 }
 
@@ -195,5 +195,5 @@ export const CharacterFormModal = ({ show, onClose, onAbort, character }) => {
 
       </form>
     </Modal>
-  </>)
+  </>);
 }

@@ -31,10 +31,10 @@ export const AddCharacter = () => {
       </Button>
 
     </div>
-    <CharacterFormModal character={null}
+    {show && <CharacterFormModal character={null}
       show={show}
       onAbort={(e) => {setShow(false)}}
       onClose={(e) => {setShow(false)}}
-    />
+    />}
   </>);
 };
