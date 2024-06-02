@@ -75,23 +75,22 @@ export const HelpBox = () => {
                             It's a way to represent and advance the state of something related to a character.
                             The state changes based on a die toss defined by a formula in standard dice notation and can go both in a positive or negative direction.
                             For example, you can define the progress for a character's affinity with a faction. Let's explore twi examples, starting with the faction affinity one.
-                            <ul className='list-disc list-inside py-2'>
-                                <li>
-                                    Let's say that you want to track the affinity for a character with the elves of Rivendell. You set the dice formula, let's say it's "1d20" (meaning "toss 1 die with 20 sides").
-                                    Now, as a lower bound you could set -100 and upper bound to 100. You set the starting point and the current value to 0.
-                                    The starting value is used to reset the progresses.
-                                    If the character does something to gain affinity with the faction, you can roll the die (or dice) going in a positive direction. You can roll the die in a negative direction otherwise.
-                                    If you want to reset the value, you'll have a button to do so.
-                                </li>
-                                <li>
-                                    Let's explore another example: the character's weapon durability.
-                                    Set the progress name to "Weapon durability", you could set the upper bound to 100 and lower bound to 0. The starting value and current value to 100 to represent a newly bought weapon.
-                                    Chose the dice formula that you feel fits best, let's say, for example, it's "2d8".
-                                    Now, everytime the weapon gets damaged, you could roll in a negative direction and the tool will subtract the outcome of 2d8 dice roll from the current value.
-                                    If the caracter fixes their weapon you could reset the value to the starting point (which is 100).
-                                </li>
-                            </ul>
-                        </p>
+                        </p>    <ul className='list-disc list-inside py-2'>
+                            <li>
+                                Let's say that you want to track the affinity for a character with the elves of Rivendell. You set the dice formula, let's say it's "1d20" (meaning "toss 1 die with 20 sides").
+                                Now, as a lower bound you could set -100 and upper bound to 100. You set the starting point and the current value to 0.
+                                The starting value is used to reset the progresses.
+                                If the character does something to gain affinity with the faction, you can roll the die (or dice) going in a positive direction. You can roll the die in a negative direction otherwise.
+                                If you want to reset the value, you'll have a button to do so.
+                            </li>
+                            <li>
+                                Let's explore another example: the character's weapon durability.
+                                Set the progress name to "Weapon durability", you could set the upper bound to 100 and lower bound to 0. The starting value and current value to 100 to represent a newly bought weapon.
+                                Chose the dice formula that you feel fits best, let's say, for example, it's "2d8".
+                                Now, everytime the weapon gets damaged, you could roll in a negative direction and the tool will subtract the outcome of 2d8 dice roll from the current value.
+                                If the caracter fixes their weapon you could reset the value to the starting point (which is 100).
+                            </li>
+                        </ul>
                     </Collapsable>
                 </section>
                 <section>
@@ -114,12 +113,12 @@ export const HelpBox = () => {
                     <Collapsable title={'Known issues'}>
                         <p className='py-1'>
                             The GMPM tool is not perfect and is actively in development. While the tool is mostly usable, there are a few issues I'm aware about. I'm working on it, don't worry.
-                            <ul className='list-disc list-inside py-2'>
-                                <li>Long dice results are cut from the left box and only the final result is visible, while some of the single dice results are not.</li>
-                                <li>When in character creation or edit, pressing ENTER will result in strange saving behaviour. Manually click the Confirm button to save.</li>
-                                <li>There is no check on values for progresses being between lower and upper bounds.</li>
-                            </ul>
                         </p>
+                        <ul className='list-disc list-inside py-2'>
+                            <li>Long dice results are cut from the left box and only the final result is visible, while some of the single dice results are not.</li>
+                            <li>When in character creation or edit, pressing ENTER will result in strange saving behaviour. Manually click the Confirm button to save.</li>
+                            <li>There is no check on values for progresses being between lower and upper bounds.</li>
+                        </ul>
                     </Collapsable>
                 </section>
 
