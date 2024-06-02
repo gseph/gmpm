@@ -1,9 +1,25 @@
-import { ReactNode } from "react";
+import { ReactNode, useLayoutEffect, useState } from "react";
 import { Button } from "./Button";
 import { X } from "tabler-icons-react";
+import { createPortal } from "react-dom";
 
 export const Modal = ({ title, show, onClose, onAbort, onConfirm, children }:
   { show: boolean, children?: ReactNode, title?: string }) => {
+    
+  const containerId = "modal-container";
+  const [container, setContainer] = useState<Element | null>(null);
+
+  useLayoutEffect(() => {
+    if (!container && document.getElementById(containerId) == null) {
+      const cont = document.createElement("div");
+      cont.setAttribute("id", containerId);
+      document.body.appendChild(cont);
+    }
+    setContainer(document.querySelector(`#${containerId}`));
+    return () => {
+      document.getElementById(containerId)?.remove();
+    }
+  }, [containerId]);
 
   function close(e) {
     if (e.target.id === 'modal') {
@@ -14,7 +30,7 @@ export const Modal = ({ title, show, onClose, onAbort, onConfirm, children }:
   if (show === false) {
     return <></>;
   }
-  return (<>
+  return container === null ? null : createPortal(<>
     <div id='modal' className="fixed w-screen h-screen inset-0 flex flex-row items-center justify-center bg-black backdrop-blur-sm bg-opacity-20 p-12 z-50"
       onClick={close}
     >
@@ -38,7 +54,7 @@ export const Modal = ({ title, show, onClose, onAbort, onConfirm, children }:
           <div className='flex basis-0 justify-end gap-16 px-16 bg-slate-50 text-slate-950 py-2'>
             {onAbort !== undefined ?
               <Button
-              variant={'secondary'} size={'main'}
+                variant={'secondary'} size={'main'}
                 onClick={onAbort}
               >
                 Cancel
@@ -49,12 +65,12 @@ export const Modal = ({ title, show, onClose, onAbort, onConfirm, children }:
               variant={'primary'} size={'main'}
               onClick={onConfirm}
             >
-              {onAbort !== undefined ? 'Confirm': 'Ok'}
+              {onAbort !== undefined ? 'Confirm' : 'Ok'}
             </Button>
           </div>
         </div>
       </div>
     </div>
-  </>);
+  </>, container);
 
 }
